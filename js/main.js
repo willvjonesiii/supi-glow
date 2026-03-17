@@ -97,7 +97,7 @@ window.addEventListener('scroll', onScroll, { passive: true });
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
   targets.forEach(el => io.observe(el));
 })();
@@ -118,6 +118,22 @@ window.addEventListener('scroll', onScroll, { passive: true });
       btn.disabled = true;
       form.reset();
     });
+  }
+})();
+
+/* ── HERO VIDEO (HLS) ── */
+(function() {
+  var video = document.getElementById('heroVideo');
+  if (!video) return;
+  var src = 'https://video.squarespace-cdn.com/content/v1/6605978ae81da54339f1b80d/bcb0e3ee-9380-488f-8b17-3d0e74615143/playlist.m3u8';
+  if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+    var hls = new Hls({ autoStartLoad: true, startLevel: -1 });
+    hls.loadSource(src);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = src;
+    video.play();
   }
 })();
 

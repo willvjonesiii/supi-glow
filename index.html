@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
 </head>
 <body>
 
@@ -36,16 +37,11 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <!-- To add video: add class "hero--video" to section, and uncomment the video block below -->
   <section class="hero" id="home" style="background-image: url('https://images.squarespace-cdn.com/content/v1/6605978ae81da54339f1b80d/4a3ffbfc-5f23-4e77-b18b-070f28c03060/background.jpg');">
     <div class="hero__overlay"></div>
-    <!--
     <div class="hero__video-wrap">
-      <video class="hero__video" autoplay muted loop playsinline>
-        <source src="assets/hero-video.mp4" type="video/mp4" />
-      </video>
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline></video>
     </div>
-    -->
     <div class="hero__content">
       <p class="hero__eyebrow">Life Mastery &middot; Consciousness &middot; Ancestral Knowledge</p>
       <h1 class="hero__heading">
