@@ -912,6 +912,20 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   .split__image { aspect-ratio: 16/9; }
   .split__content { padding: 60px 8vw; }
 
+  /* Meet Pilar portrait: show full image, no crop */
+  .meet .split__image {
+    aspect-ratio: unset;
+    min-height: unset;
+    height: auto;
+  }
+  .meet .split__image img {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
   .services__grid { grid-template-columns: repeat(2, 1fr); }
 
   .events__inner { grid-template-columns: 1fr; }
