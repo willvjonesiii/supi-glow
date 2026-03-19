@@ -27,7 +27,7 @@
 /* ── RESET & BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-mono);
@@ -322,6 +322,8 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   padding: 14px 0;
   overflow: hidden;
   white-space: nowrap;
+  max-width: 100%;
+  position: relative;
 }
 .marquee__track {
   display: inline-flex;
@@ -510,7 +512,7 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   background-image: url('https://images.squarespace-cdn.com/content/v1/6605978ae81da54339f1b80d/3735a616-b01a-43fc-b271-dc0c7ceaa39e/_61A4604+copy.jpg');
   background-attachment: fixed;
   background-size: cover;
-  background-position: center;
+  background-position: center 20%;
   position: relative;
 }
 .vision-parallax::before {
@@ -533,8 +535,11 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   line-height: 1.85;
   color: rgba(255,255,255,0.78);
 }
-@media (max-width: 768px) {
-  .vision-parallax { background-attachment: scroll; }
+@media (max-width: 1024px) {
+  .vision-parallax {
+    background-attachment: scroll;
+    background-position: center 20%;
+  }
 }
 
 /* ── MEET — PILAR IMAGE GRADIENT BLEED ── */
