@@ -433,33 +433,34 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
 }
 
 /* ── TESTIMONIALS ── */
-.testimonials__slider { position: relative; min-height: 280px; }
+.testimonials.section { padding: 48px 0; }
+.testimonials__slider { position: relative; min-height: 140px; }
 .testimonial {
   display: none;
   text-align: center;
-  max-width: 780px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 0.5rem 0;
 }
 .testimonial--active { display: block; }
 .testimonial__stars {
   color: var(--color-white);
-  font-size: 1.1rem;
-  letter-spacing: 4px;
-  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.75rem;
 }
 .testimonial__quote {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   font-weight: 300;
   font-style: italic;
   line-height: 1.5;
   color: var(--color-white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .testimonial__name {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
@@ -468,7 +469,7 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 .dot {
   width: 8px;
@@ -504,14 +505,69 @@ button { cursor: pointer; font-family: var(--font-mono); border: none; backgroun
   color: rgba(255,255,255,0.5);
 }
 
+/* ── VISION PARALLAX ── */
+.vision-parallax {
+  background-image: url('https://images.squarespace-cdn.com/content/v1/6605978ae81da54339f1b80d/3735a616-b01a-43fc-b271-dc0c7ceaa39e/_61A4604+copy.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.vision-parallax::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 32, 34, 0.68);
+  z-index: 0;
+}
+.vision-parallax .container {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+}
+.vision-parallax .label { color: rgba(255,255,255,0.55); }
+.vision-parallax .heading-display { color: var(--color-white); }
+.vision-parallax .heading-display em { color: rgba(255,255,255,0.5); }
+.vision-parallax p {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.78);
+}
+@media (max-width: 768px) {
+  .vision-parallax { background-attachment: scroll; }
+}
+
+/* ── MEET — PILAR IMAGE GRADIENT BLEED ── */
+.meet .split__image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(to right, transparent, var(--color-dark));
+  z-index: 1;
+  pointer-events: none;
+}
+
 /* ── EVENTS ── */
 .events__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 500px;
 }
-.events__image { overflow: hidden; }
-.events__image img { transition: transform 0.8s ease; }
+.events__image {
+  overflow: hidden;
+  position: relative;
+}
+.events__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
 .events__image:hover img { transform: scale(1.04); }
 .events__content {
   background: var(--color-cream);
